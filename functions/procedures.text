@@ -1,0 +1,39 @@
+functions
+npm init -y
+npm i firebase-tools -D
+firebase init functions
+firebase init hosting
+
+cd functions
+npm i express --save
+cd..
+firebase serve --only functions,hosting
+it gives:http://localhost:5001/cloudfunctions-143/us-central1/api/timestamp
+{
+  "functions": {
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+          "function": "app"
+      }
+    ]
+  }
+}
+firebase deploy
+------------------------------
+changes for json data after
+
+-------------
+cd functions
+npm i handlebars consolidate --save
+cd..
+firebase serve --only functions,hosting
